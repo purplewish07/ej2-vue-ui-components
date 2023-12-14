@@ -10,6 +10,9 @@ gulp.task('build', ['scripts', 'styles']);
 /**
  * Compile ts files
  */
+var sass = require('gulp-sass');
+var dartSass = require('sass');
+sass.compiler = dartSass;
 gulp.task('scripts', function(done) {
     var ts = require('gulp-typescript');
     var tsProject = ts.createProject('tsconfig.json', { typescript: require('typescript') });
