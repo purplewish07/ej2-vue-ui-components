@@ -19,7 +19,7 @@ gulp.task('scripts', function(done) {
 
     var tsResult = gulp.src(['./**/*.ts','./**/*.tsx', '!./node_modules/**/*.ts','!./node_modules/**/*.tsx'], { base: '.' })
         .pipe(tsProject());
-    tsResult.js.pipe(gulp.dest('./'))
+    tsResult.js.pipe(gulp.dest('./dist'))
         .on('end', function() {
             done();
         });
@@ -30,7 +30,7 @@ gulp.task('scripts', function(done) {
  */
 gulp.task('styles', function() {
     var sass = require('gulp-sass');
-    return gulp.src(['./**/*.scss', '!./node_modules/**/*.scss'], { base: './' })
+    return gulp.src(['./**/*.scss', '!./node_modules/**/*.scss'], { base: './dist' })
         .pipe(sass({
             outputStyle: 'expanded',
             includePaths: './node_modules/@syncfusion/'
